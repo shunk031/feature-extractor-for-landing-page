@@ -1,0 +1,331 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>3 Column Layout</title>
+    <style type="text/css">
+        /* Layout */
+        body {
+            min-width: 630px;
+        }
+
+        #container {
+            padding-left: 200px;
+            padding-right: 190px;
+        }
+
+        #container .column {
+            position: relative;
+            float: left;
+        }
+
+        #center {
+            padding: 10px 20px;
+            width: 100%;
+        }
+
+        #left {
+            width: 180px;
+            padding: 0 10px;
+            right: 240px;
+            margin-left: -100%;
+        }
+
+        #right {
+            width: 130px;
+            padding: 0 10px;
+            margin-right: -100%;
+        }
+
+        #footer {
+            clear: both;
+        }
+
+        /* IE hack */
+        * html #left {
+            left: 150px;
+        }
+
+        /* Make the columns the same height as each other */
+        #container {
+            overflow: hidden;
+        }
+
+        #container .column {
+            padding-bottom: 1001em;
+            margin-bottom: -1000em;
+        }
+
+        /* Fix for the footer */
+        * html body {
+            overflow: hidden;
+        }
+
+        * html #footer-wrapper {
+            float: left;
+            position: relative;
+            width: 100%;
+            padding-bottom: 10010px;
+            margin-bottom: -10000px;
+            background: #fff;
+        }
+
+        /* Aesthetics */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Sans-serif;
+            line-height: 1.5em;
+        }
+
+        p {
+            color: #555;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul a {
+            color: darkgreen;
+            text-decoration: none;
+        }
+
+        #header,
+        #footer {
+            font-size: large;
+            padding: 0.3em;
+            background: #BCCE98;
+        }
+
+        #left {
+            background: #DAE9BC;
+        }
+
+        #right {
+            background: #F7FDEB;
+        }
+
+        #center {
+            background: #fff;
+        }
+
+        #container .column {
+            padding-top: 1em;
+        }
+    </style>
+
+    <script type="text/javascript">
+        /* =============================
+           This script generates sample text for the body content.
+           You can remove this script and any reference to it.
+           ============================= */
+        var bodyText = [
+            "<a href='https://internal.com'>The smaller your reality, the more convinced you are that you know everything.</a>",
+            "<a href='https://internal.com'>If the facts don't fit the theory, change the facts.</a>",
+            "<a href='https://external.com'>The past has no power over the present moment.</a>",
+            "This, too, will pass.",
+            "</p><p>You will not be punished for your anger, you will be punished by your anger.",
+            "Peace comes from within. Do not seek it without.",
+            "<h3>Heading</h3><p>The most important moment of your life is now. The most important person in your life is the one you are with now, and the most important activity in your life is the one you are involved with now.",
+            '<p><select name="cars" id="cars"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="mercedes">Mercedes</option><option value="audi">Audi</option></select></p>',
+            '<p><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"><label for="vehicle1"> I have a bike</label><br><input type="checkbox" id="vehicle2" name="vehicle2" value="Car"><label for="vehicle2"> I have a car</label><br><input type="checkbox" id="vehicle3" name="vehicle3" value="Boat"><label for="vehicle3"> I have a boat</label></p>',
+            '<p><input type="radio" id="male" name="gender" value="male"><label for="male">Male</label><br><input type="radio" id="female" name="gender" value="female"><label for="female">Female</label><br><input type="radio" id="other" name="gender" value="other"><label for="other">Other</label></p>',
+            '<p><input type="text" id="fname" name="fname"></p>',
+        ]
+        function generateText(sentenceCount) {
+            for (var i = 0; i < sentenceCount; i++)
+                document.write(bodyText[Math.floor(Math.random() * 11)] + " ")
+        }
+    </script>
+</head>
+
+<body>
+
+    <header id="header">
+        <p>Header...</p>
+    </header>
+
+    <div id="container">
+
+        <main id="center" class="column">
+            <article>
+                <img src="mona-lisa.png" style="width: 50%; display: block; margin: auto;">
+                <h1>Heading</h1>
+                <p>
+                    <script>generateText(50)</script>
+                </p>
+                <p><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"><label for="vehicle1"> I have a
+                        bike</label><br><input type="checkbox" id="vehicle2" name="vehicle2" value="Car"><label
+                        for="vehicle2"> I have a car</label><br><input type="checkbox" id="vehicle3" name="vehicle3"
+                        value="Boat"><label for="vehicle3"> I have a boat</label></p>
+                <p><select name="cars" id="cars">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select></p>
+                <p><select name="cars" id="cars">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select></p>
+                <p><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"><label for="vehicle1"> I have a
+                        bike</label><br><input type="checkbox" id="vehicle2" name="vehicle2" value="Car"><label
+                        for="vehicle2"> I have a car</label><br><input type="checkbox" id="vehicle3" name="vehicle3"
+                        value="Boat"><label for="vehicle3"> I have a boat</label></p>
+                <p><select name="cars" id="cars">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select></p> Peace comes from within. Do not seek it without. <p></p>
+                <p>You will not be punished for your anger, you will be punished by your anger. Peace comes from within.
+                    Do not seek it without. </p>
+                <p><input type="radio" id="male" name="gender" value="male"><label for="male">Male</label><br><input
+                        type="radio" id="female" name="gender" value="female"><label
+                        for="female">Female</label><br><input type="radio" id="other" name="gender" value="other"><label
+                        for="other">Other</label></p>
+                <p><input type="radio" id="male" name="gender" value="male"><label for="male">Male</label><br><input
+                        type="radio" id="female" name="gender" value="female"><label
+                        for="female">Female</label><br><input type="radio" id="other" name="gender" value="other"><label
+                        for="other">Other</label></p> Peace comes from within. Do not seek it without. <p><select
+                        name="cars" id="cars">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select></p>
+                <p><select name="cars" id="cars">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select></p>
+                <p><select name="cars" id="cars">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select></p>
+                <h3>Heading</h3>
+                <p>The most important moment of your life is now. The most important person in your life is the one you
+                    are with now, and the most important activity in your life is the one you are involved with now.
+                </p>
+                <p>You will not be punished for your anger, you will be punished by your anger. <a
+                        href="https://internal.com">If the facts don't fit the theory, change the facts.</a> </p>
+                <p><select name="cars" id="cars">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select></p>
+                <p><input type="radio" id="male" name="gender" value="male"><label for="male">Male</label><br><input
+                        type="radio" id="female" name="gender" value="female"><label
+                        for="female">Female</label><br><input type="radio" id="other" name="gender" value="other"><label
+                        for="other">Other</label></p> This, too, will pass. <p><input type="radio" id="male"
+                        name="gender" value="male"><label for="male">Male</label><br><input type="radio" id="female"
+                        name="gender" value="female"><label for="female">Female</label><br><input type="radio"
+                        id="other" name="gender" value="other"><label for="other">Other</label></p>
+                <p><input type="radio" id="male" name="gender" value="male"><label for="male">Male</label><br><input
+                        type="radio" id="female" name="gender" value="female"><label
+                        for="female">Female</label><br><input type="radio" id="other" name="gender" value="other"><label
+                        for="other">Other</label></p> <a href="https://external.com">The past has no power over the
+                    present moment.</a> Peace comes from within. Do not seek it without. Peace comes from within. Do not
+                seek it without. <p><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"><label
+                        for="vehicle1"> I have a bike</label><br><input type="checkbox" id="vehicle2" name="vehicle2"
+                        value="Car"><label for="vehicle2"> I have a car</label><br><input type="checkbox" id="vehicle3"
+                        name="vehicle3" value="Boat"><label for="vehicle3"> I have a boat</label></p> <a
+                    href="https://external.com">The past has no power over the present moment.</a>
+                <p></p>
+                <p>You will not be punished for your anger, you will be punished by your anger. <a
+                        href="https://internal.com">The smaller your reality, the more convinced you are that you know
+                        everything.</a> <a href="https://internal.com">If the facts don't fit the theory, change the
+                        facts.</a> <a href="https://internal.com">The smaller your reality, the more convinced you are
+                        that you know everything.</a> </p>
+                <h3>Heading</h3>
+                <p>The most important moment of your life is now. The most important person in your life is the one you
+                    are with now, and the most important activity in your life is the one you are involved with now. <a
+                        href="https://internal.com">The smaller your reality, the more convinced you are that you know
+                        everything.</a> </p>
+                <p><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"><label for="vehicle1"> I have a
+                        bike</label><br><input type="checkbox" id="vehicle2" name="vehicle2" value="Car"><label
+                        for="vehicle2"> I have a car</label><br><input type="checkbox" id="vehicle3" name="vehicle3"
+                        value="Boat"><label for="vehicle3"> I have a boat</label></p>
+                <p><input type="radio" id="male" name="gender" value="male"><label for="male">Male</label><br><input
+                        type="radio" id="female" name="gender" value="female"><label
+                        for="female">Female</label><br><input type="radio" id="other" name="gender" value="other"><label
+                        for="other">Other</label></p>
+                <p></p>
+                <p>You will not be punished for your anger, you will be punished by your anger. </p>
+                <p>You will not be punished for your anger, you will be punished by your anger. <a
+                        href="https://external.com">The past has no power over the present moment.</a> <a
+                        href="https://internal.com">The smaller your reality, the more convinced you are that you know
+                        everything.</a> <a href="https://internal.com">If the facts don't fit the theory, change the
+                        facts.</a> </p>
+                <p><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"><label for="vehicle1"> I have a
+                        bike</label><br><input type="checkbox" id="vehicle2" name="vehicle2" value="Car"><label
+                        for="vehicle2"> I have a car</label><br><input type="checkbox" id="vehicle3" name="vehicle3"
+                        value="Boat"><label for="vehicle3"> I have a boat</label></p> <a href="https://external.com">The
+                    past has no power over the present moment.</a>
+                <p><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"><label for="vehicle1"> I have a
+                        bike</label><br><input type="checkbox" id="vehicle2" name="vehicle2" value="Car"><label
+                        for="vehicle2"> I have a car</label><br><input type="checkbox" id="vehicle3" name="vehicle3"
+                        value="Boat"><label for="vehicle3"> I have a boat</label></p> <a href="https://internal.com">The
+                    smaller your reality, the more convinced you are that you know everything.</a>
+                <p><input type="text" id="fname" name="fname"></p> <a href="https://internal.com">The smaller your
+                    reality, the more convinced you are that you know everything.</a> <a href="https://internal.com">If
+                    the facts don't fit the theory, change the facts.</a> <a href="https://internal.com">If the facts
+                    don't fit the theory, change the facts.</a> <a href="https://internal.com">The smaller your reality,
+                    the more convinced you are that you know everything.</a>
+                <p><input type="text" id="fname" name="fname"></p>
+                <p></p>
+            </article>
+        </main>
+
+        <nav id="left" class="column">
+            <img src="much-the-scream.png" style="width: 100%;">
+            <h3>Left heading</h3>
+            <ul>
+                <li><a href="https://internal.com">Link 1</a></li>
+                <li><a href="https://internal.com">Link 2</a></li>
+                <li><a href="https://internal.com">Link 3</a></li>
+                <li><a href="https://internal.com">Link 4</a></li>
+                <li><a href="https://internal.com">Link 5</a></li>
+            </ul>
+            <h3>Left heading</h3>
+            <ul>
+                <li><a href="https://external.com">Link 1</a></li>
+                <li><a href="https://external.com">Link 2</a></li>
+                <li><a href="https://external.com">Link 3</a></li>
+                <li><a href="https://external.com">Link 4</a></li>
+                <li><a href="https://external.com">Link 5</a></li>
+            </ul>
+
+        </nav>
+
+        <div id="right" class="column">
+            <img src="much-the-scream.png" style="width: 100%;">
+            <h3>Right heading</h3>
+            <p>
+                <script>generateText(1)</script>
+            </p>
+            <p><select name="cars" id="cars">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="audi">Audi</option>
+                </select></p>
+            <p></p>
+            <img src="van-gogh-sunflowers.png" style="width: 100%;">
+        </div>
+
+    </div>
+
+    <div id="footer-wrapper">
+        <footer id="footer">
+            <p>Footer...</p>
+        </footer>
+    </div>
+</body>
