@@ -13,6 +13,7 @@ class TestDocumentObjectFeature(FelpTestCase):
             lp_url="https://felp_dummy_internal.com", soup=soup
         )
         internal_links = extractor.get_internal_links()
+        print(internal_links)
         raise NotImplementedError
 
     @pytest.mark.skip()
@@ -24,6 +25,7 @@ class TestDocumentObjectFeature(FelpTestCase):
             lp_url="https://felp_dummy_internal.com", soup=soup
         )
         external_links = extractor.get_external_links()
+        print(external_links)
         raise NotImplementedError
 
     @pytest.mark.parametrize(
