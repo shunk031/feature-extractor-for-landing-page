@@ -1,6 +1,5 @@
 import copy
-from collections import defaultdict
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Dict, List
 from urllib.parse import urlparse
 
@@ -24,23 +23,25 @@ class DocumentObjectFeature(object):
         self._soup = soup
         self._lp_url = lp_url
 
-        # self._num_of_internal_links = self.get_number_of_internal_links()
-        # self._num_of_external_links = self.get_number_of_external_links()
-
-        # self._internal_external_links: Dict[str, List[str]] = self._get_links()
         self._internal_external_links: HtmlLinks = self.get_links()
+
+    def get_external_links(self) -> List[Link]:
+        return self._internal_external_links.external
+
+    def get_internal_links(self) -> List[Link]:
+        return self._internal_external_links.internal
 
     def get_num_of_internal_links(self) -> int:
         """
         No. of links pointing to the same domain as the landing page
         """
-        return len(self._internal_external_links.internal)
+        return len(self.get_internal_links())
 
     def get_num_of_external_links(self) -> int:
         """
         No. of links pointing to external domains
         """
-        return len(self._internal_external_links.external)
+        return len(self.get_external_links())
 
     def get_num_of_links(self) -> int:
         """
@@ -54,7 +55,7 @@ class DocumentObjectFeature(object):
     def get_links(self) -> HtmlLinks:
         parsed_lp_url = urlparse(self._lp_url)
 
-        links: Dict[str, List[str]] = {"internal": [], "external": []}
+        links: Dict[str, List[Link]] = {"internal": [], "external": []}
         for a_tag in self._soup.find_all("a"):
             url = a_tag.get("href")
             parsed_url = urlparse(url)
@@ -73,19 +74,14 @@ class DocumentObjectFeature(object):
     def get_main_text(self) -> str:
         soup = copy.copy(self._soup)
         soup.find("head").decompose()
-        # breakpoint()
 
         header_tags = soup.find_all("header")
         for header_tag in header_tags:
             header_tag.decompose()
 
-        # breakpoint()
-
         footer_tags = soup.find_all("footer")
         for footer_tag in footer_tags:
             footer_tag.decompose()
-
-        # breakpoint()
 
         return soup.get_text()
 
@@ -115,9 +111,7 @@ class DocumentObjectFeature(object):
         body_text = self._soup.get_text(strip=True)
         # TODO (shunk031): clean up the body text
 
-        link_text = "".join(
-            link.text for link in self._internal_external_links.internal
-        )
+        link_text = "".join(link.text for link in self.get_internal_links())
         return len(link_text) / len(body_text)
 
     def get_text_size_external_links_ratio(self) -> float:
@@ -127,9 +121,7 @@ class DocumentObjectFeature(object):
         body_text = self._soup.get_text(strip=True)
         # TODO (shunk031): clean up the body text
 
-        link_text = "".join(
-            link.text for link in self._internal_external_links.external
-        )
+        link_text = "".join(link.text for link in self.get_external_links())
         return len(link_text) / len(body_text)
 
     def get_text_size_links_ratio(self) -> float:
@@ -139,10 +131,10 @@ class DocumentObjectFeature(object):
         body_text_size = len(self._soup.get_text(strip=True))
         # TODO (shunk031): clean up the body text
 
-        internal_links = self._internal_external_links.internal
+        internal_links = self.get_internal_links()
         internal_link_text_size = sum([len(link.text) for link in internal_links])
 
-        external_links = self._internal_external_links.external
+        external_links = self.get_external_links()
         external_link_text_size = sum([len(link.text) for link in external_links])
 
         links_size = internal_link_text_size + external_link_text_size
@@ -152,9 +144,8 @@ class DocumentObjectFeature(object):
         """
         Main text (without boilerplate text) per Internal links ratio
         """
-        internal_links = self._internal_external_links.internal
+        internal_links = self.get_internal_links()
         internal_link_text_size = sum([len(link.text) for link in internal_links])
-        # breakpoint()
         main_text_size = len(self.get_main_text())
 
         return internal_link_text_size / main_text_size
@@ -163,7 +154,7 @@ class DocumentObjectFeature(object):
         """
         Main text (without boilerplate text) per External links ratio
         """
-        external_links = self._internal_external_links.external
+        external_links = self.get_external_links()
         external_link_text_size = sum([len(link.text) for link in external_links])
 
         main_text_size = len(self.get_main_text())
