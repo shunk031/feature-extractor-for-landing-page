@@ -1,5 +1,6 @@
 # Feature Extractor for Landing Page
 
+![CI](https://github.com/shunk031/feature-extractor-for-landing-page/workflows/CI/badge.svg)
 ![Python](https://img.shields.io/badge/python-3.7%20%7C%203.8-blue?logo=python)
 
 ## Paper list
