@@ -55,7 +55,7 @@ class DocumentObjectFeature(object):
     def get_links(self) -> HtmlLinks:
         parsed_lp_url = urlparse(self._lp_url)
 
-        links: Dict[str, List[str]] = {"internal": [], "external": []}
+        links: Dict[str, List[Link]] = {"internal": [], "external": []}
         for a_tag in self._soup.find_all("a"):
             url = a_tag.get("href")
             parsed_url = urlparse(url)
