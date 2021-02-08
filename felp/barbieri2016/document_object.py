@@ -74,19 +74,14 @@ class DocumentObjectFeature(object):
     def get_main_text(self) -> str:
         soup = copy.copy(self._soup)
         soup.find("head").decompose()
-        # breakpoint()
 
         header_tags = soup.find_all("header")
         for header_tag in header_tags:
             header_tag.decompose()
 
-        # breakpoint()
-
         footer_tags = soup.find_all("footer")
         for footer_tag in footer_tags:
             footer_tag.decompose()
-
-        # breakpoint()
 
         return soup.get_text()
 
@@ -151,7 +146,6 @@ class DocumentObjectFeature(object):
         """
         internal_links = self.get_internal_links()
         internal_link_text_size = sum([len(link.text) for link in internal_links])
-        # breakpoint()
         main_text_size = len(self.get_main_text())
 
         return internal_link_text_size / main_text_size
