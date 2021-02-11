@@ -30,7 +30,7 @@ jobs:
           pip install black
           make format
 
-      - name: List
+      - name: Lint
         run: |
           pip install flake8
           make lint
