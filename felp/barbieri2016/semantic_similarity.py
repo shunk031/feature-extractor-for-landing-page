@@ -1,7 +1,6 @@
 from typing import List
 
 from bs4 import BeautifulSoup
-from natto import MeCab
 
 
 class SemanticSimilarity(object):

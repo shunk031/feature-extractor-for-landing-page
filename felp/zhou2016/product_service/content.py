@@ -4,7 +4,8 @@ class ContentFeature(object):
 
     def get_yct(self) -> int:
         """
-        Likelihood of the most top level YCT (Yahoo Category Taxonomy, e.g., sports) the text to be classified from CAP
+        Likelihood of the most top level YCT (Yahoo Category Taxonomy, e.g., sports)
+        the text to be classified from CAP
         """
         raise NotImplementedError
 
@@ -22,6 +23,7 @@ class ContentFeature(object):
 
     def get_image_cnn_classifier(self) -> int:
         """
-        Likelihood of image to contain deep learning based object based on the second last layer of the Convolutional Neural Networks (CNNs)
+        Likelihood of image to contain deep learning based object
+        based on the second last layer of the Convolutional Neural Networks (CNNs)
         """
         raise NotImplementedError

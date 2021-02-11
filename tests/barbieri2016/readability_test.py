@@ -20,7 +20,7 @@ class TestReadabilityFeature(FelpTestCase):
             lp_url="https://felp_dummy_internal.com", soup=soup
         )
         ratio = extractor.get_main_total_text_size_ratio()
-        raise NotImplementedError
+        assert ratio == expected
 
     @pytest.mark.parametrize(
         "html_file, expected",
@@ -37,7 +37,7 @@ class TestReadabilityFeature(FelpTestCase):
             lp_url="https://felp_dummy_internal.com", soup=soup
         )
         total_text_size = extractor.get_total_text_size()
-        raise NotImplementedError
+        assert total_text_size == expected
 
     @pytest.mark.parametrize(
         "html_file, expected",
@@ -54,7 +54,7 @@ class TestReadabilityFeature(FelpTestCase):
             lp_url="https://felp_dummy_internal.com", soup=soup
         )
         main_text_size = extractor.get_main_text_size()
-        raise NotImplementedError
+        assert main_text_size == expected
 
     def test_get_flash_kincaid_title_readability(self) -> float:
         """
@@ -83,8 +83,7 @@ class TestReadabilityFeature(FelpTestCase):
             lp_url="https://felp_dummy_internal.com", soup=soup
         )
         token_count = extractor.get_token_count()
-
-        raise NotImplementedError
+        assert token_count == expected
 
     def test_get_summarizability_score(self) -> float:
         """
