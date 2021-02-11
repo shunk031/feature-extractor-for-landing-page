@@ -9,7 +9,12 @@ class InputFeature(object):
         """
         Number of clickable objects in the landing page
         """
-        raise NotImplementedError
+        return (
+            self.get_number_of_dropdown()
+            + self.get_number_of_check_box()
+            + self.get_number_of_input_strings()
+            + self.get_number_of_radio_buttons()
+        )
 
     def get_number_of_dropdown(self) -> int:
         """
