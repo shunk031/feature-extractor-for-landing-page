@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 class MediaFeature(object):
     def __init__(self, soup: BeautifulSoup) -> None:
-        pass
+        self._soup = soup
 
     def get_image_height(self) -> int:
         """
@@ -21,10 +21,12 @@ class MediaFeature(object):
         """
         Number of images contained in the landing page
         """
-        raise NotImplementedError
+        return len(self._soup.find_all("img"))
 
     def get_media(self) -> bool:
         """
         Is there a media (e.g., video) on the landing page?
         """
-        raise NotImplementedError
+        is_image = len(self._soup.find_all("img")) > 0
+        is_video = len(self._soup.find_all("video")) > 0
+        return is_image or is_video

@@ -37,7 +37,7 @@ class ReadabilityFeature(object):
         """
         Readability of the title
         """
-        title = self._soup.find("title")
+        # title = self._soup.find("title")
         raise NotImplementedError
 
     def get_flash_kincaid_abstract_readability(self) -> float:

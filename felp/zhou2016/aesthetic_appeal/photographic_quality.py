@@ -18,7 +18,8 @@ class PhotographicQualityFeature(object):
         """
         No-reference quality estimation algorithm in Wang et al.
 
-        Wang, Zhou, Hamid R. Sheikh, and Alan C. Bovik. \"No-reference perceptual quality assessment of JPEG compressed images.\"
+        Wang, Zhou, Hamid R. Sheikh, and Alan C. Bovik.
+        \"No-reference perceptual quality assessment of JPEG compressed images.\"
         Proceedings. International Conference on Image Processing. Vol. 1. IEEE, 2002.
 
         https://ieeexplore.ieee.org/document/1038064

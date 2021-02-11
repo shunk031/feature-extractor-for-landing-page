@@ -7,7 +7,7 @@ def main():
         prog="felp", description="Feature extractor for Japanese landing page."
     )
     parser.add_argument("html-file", type=pathlib.Path, help="Path to html file")
-    args = parser.parse_args()
+    print(parser.parse_args())
 
 
 if __name__ == "__main__":
