@@ -9,7 +9,7 @@ class TestReadabilityFeature(FelpTestCase):
         "html_file, expected",
         (("lp01.html", 14), ("lp02.html", 90), ("lp03.html", 88)),
     )
-    def test_get_main_total_text_size_ratio(self, html_file, expected) -> float:
+    def test_get_main_total_text_size_ratio(self, html_file, expected):
         """
         Main text (without boilerplate text) per total links ratio
         """
@@ -26,7 +26,7 @@ class TestReadabilityFeature(FelpTestCase):
         "html_file, expected",
         (("lp01.html", 14), ("lp02.html", 90), ("lp03.html", 88)),
     )
-    def test_get_total_text_size(self, html_file, expected) -> float:
+    def test_get_total_text_size(self, html_file, expected):
         """
         Text size
         """
@@ -43,7 +43,7 @@ class TestReadabilityFeature(FelpTestCase):
         "html_file, expected",
         (("lp01.html", 14), ("lp02.html", 90), ("lp03.html", 88)),
     )
-    def test_get_main_text_size(self, html_file, expected) -> float:
+    def test_get_main_text_size(self, html_file, expected):
         """
         Main text size
         """
@@ -56,13 +56,13 @@ class TestReadabilityFeature(FelpTestCase):
         main_text_size = extractor.get_main_text_size()
         assert main_text_size == expected
 
-    def test_get_flash_kincaid_title_readability(self) -> float:
+    def test_get_flash_kincaid_title_readability(self):
         """
         Readability of the title
         """
         raise NotImplementedError
 
-    def test_get_flash_kincaid_abstract_readability(self) -> float:
+    def test_get_flash_kincaid_abstract_readability(self):
         """
         Readability of the abstract
         """
@@ -72,7 +72,7 @@ class TestReadabilityFeature(FelpTestCase):
         "html_file, expected",
         (("lp01.html", 14), ("lp02.html", 90), ("lp03.html", 88)),
     )
-    def test_get_token_count(self, html_file, expected) -> float:
+    def test_get_token_count(self, html_file, expected):
         """
         Number of tokens
         """
@@ -85,13 +85,13 @@ class TestReadabilityFeature(FelpTestCase):
         token_count = extractor.get_token_count()
         assert token_count == expected
 
-    def test_get_summarizability_score(self) -> float:
+    def test_get_summarizability_score(self):
         """
         Summarizability of the text
         """
         raise NotImplementedError
 
-    def test_get_flash_kincaid_main_text_readability(self) -> float:
+    def test_get_flash_kincaid_main_text_readability(self):
         """
         Readability of the main text
         """
